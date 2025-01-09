@@ -1,0 +1,50 @@
+<!-- Print Data Page -->
+<h1>Student Data</h1>
+<table border="1">
+  <tr>
+    <!-- Table Headers -->
+    <th>Enrollment No</th>
+    <th>Student Name</th>
+    <th>Father's Name</th>
+    <th>Parent Contact</th>
+    <th>Session</th>
+    <th>Class</th>
+    <th>Course Codes</th>
+    <th>Download PDF</th>
+  </tr>
+  <% students.forEach(student => { %>
+    <tr>
+      <!-- Enrollment No -->
+      <td><%= student.enrollmentNo %></td>
+
+      <!-- Student Name -->
+      <td><%= student.name %></td>
+
+      <!-- Father's Name -->
+      <td><%= student.fatherName %></td>
+
+      <!-- Parent Contact -->
+      <td><%= student.parentContact %></td>
+
+      <!-- Session -->
+      <td><%= student.session %></td>
+
+      <!-- Class -->
+      <td><%= student.grade %></td>
+
+      <!-- Course Codes -->
+      <td>
+        <% if (student.courseCodes && student.courseCodes.length > 0) { %>
+          <% student.courseCodes.forEach((code, index) => { %>
+            Code <%= index + 1 %>: <%= code %><br />
+          <% }); %>
+        <% } else { %>
+          <p>No course codes available</p>
+        <% } %>
+      </td>
+
+      <!-- Download PDF Link -->
+      <td><a href="/download-pdf/<%= student._id %>">Download PDF</a></td>
+    </tr>
+  <% }); %>
+</table>
