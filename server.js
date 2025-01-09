@@ -31,7 +31,7 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 // Access Control Middleware
-const mainUser = { username: "admin", password: "password" }; // Change accordingly
+const mainUser = { username: "Hey_Google", password: "Bye_Google" }; // Change accordingly
 let loggedIn = false;
 
 app.get("/", (req, res) => {
